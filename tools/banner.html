@@ -1,0 +1,92 @@
+<!doctype html>
+<!-- The profile banner. render.sh screenshots it at 2x: banner.html for the
+     light PNG, banner.html?dark for the dark one. Colours and fonts are the
+     docs site's (openams.si-forge.com); the mark and wordmark come from the
+     logo kit in openams/tools/docs/logo. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500;700&display=block">
+<style>
+  :root {
+    --panel: #f2f5f4; --rule: #d2dad8; --ink: #162027; --muted: #55616a;
+    --accent: #1d6a47; --hub: #ffffff;
+    --bay1: #d9534f; --bay2: #e8a01a; --bay3: #3d8bd4; --bay4: #3f9f5f;
+  }
+  :root.dark {
+    --panel: #141c1f; --rule: #2a373b; --ink: #e2e9ea; --muted: #9ba9ae;
+    --accent: #62cf9a; --hub: #0d1315;
+    --bay1: #e8625d; --bay2: #f0b429; --bay3: #5aa2e6; --bay4: #52b673;
+  }
+  html, body { margin: 0; background: transparent; }
+  .banner {
+    position: relative; box-sizing: border-box; width: 1280px; height: 360px;
+    overflow: hidden; background: var(--panel); border: 1.5px solid var(--rule);
+    border-radius: 18px; color: var(--ink);
+  }
+  .text {
+    position: absolute; left: 64px; top: 0; bottom: 0;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .overline {
+    font: 500 15px/1 "JetBrains Mono", monospace; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .lockup {
+    display: block; align-self: flex-start; height: 108px; margin: 20px 0 0 -4px;
+  }
+  .tagline {
+    margin-top: 22px; font: 700 29px/1.2 "Atkinson Hyperlegible", sans-serif;
+  }
+  .sub {
+    margin-top: 8px; font: 400 21px/1.35 "Atkinson Hyperlegible", sans-serif;
+    color: var(--muted);
+  }
+  svg.lanes { position: absolute; right: 0; top: 0; }
+  .lanes text { font: 700 15px "JetBrains Mono", monospace; fill: var(--muted); }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="text">
+    <div class="overline">Open source &nbsp;·&nbsp; Klipper &nbsp;·&nbsp; Mainsail &amp; Fluidd</div>
+    <img class="lockup" id="lockup" src="brand/openams-lockup.svg" alt="OpenAMS">
+    <div class="tagline">Klipper for multi-material units</div>
+    <div class="sub">Automatic filament changes, runout reload and spool<br>tracking for Bambu Lab AMS units and other MMUs.</div>
+  </div>
+
+  <!-- Four bays feed one hub, and the hub sends the selected filament (T2)
+       on to the toolhead: what the AMS does, drawn like the logo, with round
+       spools leading strokes. -->
+  <svg class="lanes" width="560" height="360" viewBox="0 -10 560 360">
+    <g fill="none" stroke-width="10" stroke-linecap="round">
+      <path d="M78 74 H170 C250 74 270 170 344 170" stroke="var(--bay1)"/>
+      <path d="M78 138 H170 C232 138 276 170 344 170" stroke="var(--bay2)"/>
+      <path d="M78 202 H170 C232 202 276 170 344 170" stroke="var(--bay3)"/>
+      <path d="M78 266 H170 C250 266 270 170 344 170" stroke="var(--bay4)"/>
+      <path d="M360 170 H580" stroke="var(--bay3)"/>
+    </g>
+    <g>
+      <circle cx="78" cy="74" r="17" fill="var(--bay1)"/>
+      <circle cx="78" cy="138" r="17" fill="var(--bay2)"/>
+      <circle cx="78" cy="202" r="17" fill="var(--bay3)"/>
+      <circle cx="78" cy="266" r="17" fill="var(--bay4)"/>
+    </g>
+    <g text-anchor="end">
+      <text x="44" y="79">T0</text>
+      <text x="44" y="143">T1</text>
+      <text x="44" y="207">T2</text>
+      <text x="44" y="271">T3</text>
+    </g>
+    <circle cx="352" cy="170" r="25" fill="var(--hub)" stroke="var(--rule)" stroke-width="3"/>
+    <circle cx="352" cy="170" r="8" fill="var(--bay3)"/>
+  </svg>
+</div>
+<script>
+  if (location.search.includes('dark')) {
+    document.documentElement.classList.add('dark');
+    document.getElementById('lockup').src = 'brand/openams-lockup-dark.svg';
+  }
+</script>
+</body>
+</html>
