@@ -1,7 +1,9 @@
 <a href="https://openams.si-forge.com">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/OpenAMSOrg/.github/main/profile/assets/banner-dark.png">
-    <img alt="OpenAMS: Klipper for multi-material units. Four spools, T0 to T3, feed one hub, which sends the selected filament on to the toolhead." src="https://raw.githubusercontent.com/OpenAMSOrg/.github/main/profile/assets/banner-light.png">
+    <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/OpenAMSOrg/.github/main/profile/assets/hero-dark.png">
+    <source media="(prefers-reduced-motion: reduce)" srcset="https://raw.githubusercontent.com/OpenAMSOrg/.github/main/profile/assets/hero-light.png">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/OpenAMSOrg/.github/main/profile/assets/hero-dark.webp">
+    <img alt="OpenAMS: Klipper for multi-material units. Four units each feed a filament to one joint, and the four filaments spin together into the OpenAMS logo." src="https://raw.githubusercontent.com/OpenAMSOrg/.github/main/profile/assets/hero-light.webp">
   </picture>
 </a>
 
